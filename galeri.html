@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Galeri Kelas 12 TKJ G</title>
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0b132b;
+    color:white;
+}
+header{
+    background:#1c2541;
+    padding:30px;
+    text-align:center;
+}
+header img.logo{
+    position:fixed;
+    top:15px;
+    left:15px;
+    width:55px;
+    height:auto;
+    border-radius:8px;
+    background:white;
+    padding:4px;
+    z-index:1100;
+}
+
+/* SEARCH */
+.search-box{
+    max-width:400px;
+    margin:30px auto;
+}
+.search-box input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    font-size:15px;
+}
+
+/* GALERI */
+section{
+    padding:40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+.card{
+    background:#1c2541;
+    border-radius:12px;
+    overflow:hidden;
+    text-align:center;
+    cursor:pointer;
+}
+.card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    transition:0.3s;
+}
+.card:hover img{
+    transform:scale(1.05);
+    box-shadow:0 0 15px #3a86ff;
+}
+.caption{
+    padding:10px;
+    color:#3aeeff;
+    font-size:14px;
+}
+
+#notFound{
+    display:none;
+    text-align:center;
+    color:#ff6b6b;
+    font-style:italic;
+}
+
+/* LIGHTBOX */
+#lightbox{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+}
+#lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:12px;
+}
+#lightbox span{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:35px;
+    cursor:pointer;
+    color:white;
+}
+
+/* TOMBOL KEMBALI */
+.back-home{
+    text-align:center;
+    margin:30px 0;
+}
+.back-home a{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 22px;
+    background:#1c2541;
+    color:#3a86ff;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:25px;
+    transition:0.3s;
+}
+.back-home a:hover{
+    background:#3a86ff;
+    color:white;
+}
+.back-home a span{
+    transition:0.3s;
+}
+.back-home a:hover span{
+    transform:translateX(-4px);
+}
+
+footer{
+    background:#1c2541;
+    text-align:center;
+    padding:15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="https://i.ibb.co.com/27qhfM3c/1000344585-removebg-preview.png" class="logo">
+<h1>Galeri Kegiatan Kelas 12 TKJ G</h1>
+</header>
+
+<!-- SEARCH -->
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Cari gambar...">
+</div>
+
+<p id="notFound">Maaf, gambar tidak ditemukan 😢</p>
+
+<section id="gallery">
+<div class="card"><img src="https://i.ibb.co.com/YBtbpkg9/IMG-20251224-WA0084.jpg"><div class="caption">Coffee Shop</div></div>
+<div class="card"><img src="https://i.ibb.co.com/wFhmYW0w/IMG-20251211-WA0046.jpg"><div class="caption">Class Meeting Badminton</div></div>
+<div class="card"><img src="https://i.ibb.co.com/JYv9Gk6/IMG-20251221-WA0058.jpg"><div class="caption">Bazaar Sekolah</div></div>
+<div class="card"><img src="https://i.ibb.co.com/C5ZYh1jc/IMG-20251221-WA0019.jpg"><div class="caption">Bazaar Sekolah 2</div></div>
+<div class="card"><img src="https://i.ibb.co.com/bRqtr98m/IMG-20251221-WA0017.jpg"><div class="caption">Bazaar Sekolah 3</div></div>
+<div class="card"><img src="https://i.ibb.co.com/nNCv32gD/IMG-20251223-WA0072.jpg"><div class="caption">Bakar-bakar Tahun Baru</div></div>
+
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+<span onclick="closeLightbox()">×</span>
+<img id="lightboxImg">
+</div>
+
+<div class="back-home">
+<a href="index.html"><span>←</span> Kembali ke Beranda</a>
+</div>
+
+<footer>© 2025 Kelas 12 TKJ G</footer>
+
+<script>
+// SEARCH
+const searchInput=document.getElementById("searchInput");
+const cards=document.querySelectorAll(".card");
+const notFound=document.getElementById("notFound");
+
+searchInput.addEventListener("keyup",()=>{
+  let value=searchInput.value.toLowerCase();
+  let found=false;
+  cards.forEach(card=>{
+    let text=card.querySelector(".caption").innerText.toLowerCase();
+    if(text.includes(value)){
+      card.style.display="";
+      found=true;
+    }else{
+      card.style.display="none";
+    }
+  });
+  notFound.style.display=found?"none":"block";
+});
+
+// LIGHTBOX
+const lightbox=document.getElementById("lightbox");
+const lightboxImg=document.getElementById("lightboxImg");
+
+cards.forEach(card=>{
+  card.onclick=()=>{
+    lightbox.style.display="flex";
+    lightboxImg.src=card.querySelector("img").src;
+  };
+});
+function closeLightbox(){
+  lightbox.style.display="none";
+}
+</script>
+
+</body>
+</html>

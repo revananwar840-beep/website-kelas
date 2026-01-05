@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Playlist Lagu Siswa - 12 TKJ G</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0b132b;
+    color:white;
+}
+
+/* Header */
+header{
+    background:linear-gradient(135deg,#1c2541,#3a86ff);
+    padding:40px;
+    text-align:center;
+}
+header img.logo{
+    position:fixed;
+    top:15px;
+    left:15px;
+    width:55px;
+    border-radius:8px;
+    background:white;
+    padding:4px;
+}
+
+/* Navbar */
+nav{
+    background:#1c2541;
+    padding:12px;
+    text-align:center;
+    position:sticky;
+    top:0;
+}
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+}
+nav a.active{color:#3a86ff}
+
+/* Section */
+section{padding:40px}
+
+/* Tools */
+.tools{
+    max-width:700px;
+    margin:0 auto 20px;
+    display:flex;
+    gap:10px;
+}
+.tools input,.tools select,.tools button{
+    flex:1;
+    padding:10px;
+    border-radius:6px;
+    border:none;
+}
+
+/* Card */
+.card{
+    background:#1c2541;
+    padding:25px;
+    border-radius:12px;
+    max-width:700px;
+    margin:15px auto;
+}
+.card.playing{
+    outline:2px solid #3a86ff;
+}
+audio{
+    width:100%;
+    margin-top:10px;
+}
+.small{
+    font-size:13px;
+    opacity:0.8;
+}
+
+/* Mobile */
+@media(max-width:600px){
+    section{padding:20px}
+    .tools{flex-direction:column}
+}
+
+/* Footer */
+footer{
+    background:#1c2541;
+    text-align:center;
+    padding:15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="https://i.ibb.co/27qhfM3c/1000344585-removebg-preview.png" class="logo">
+<h1>Playlist Lagu Siswa</h1>
+<p>Dipilih langsung sama anak-anak 12 TKJ G 🎧</p>
+</header>
+
+<nav>
+<a href="index.html">Beranda</a>
+<a href="playlist.html" class="active">Playlist Lagu</a>
+</nav>
+
+<section>
+
+<div class="tools">
+<input type="text" id="search" placeholder="Cari judul lagu...">
+<select id="filterSiswa">
+<option value="">Semua siswa</option>
+<option value="Reifan">Reifan</option>
+<option value="Andi">Andi</option>
+<option value="Sinta">Sinta</option>
+</select>
+<button id="playAll">▶ Putar Semua</button>
+</div>
+
+<div id="playlist">
+
+<!-- 1 -->
+<div class="card" data-judul="mesin waktu" data-siswa="Reifan">
+<h3>Mesin Waktu</h3>
+<p>Artis: Budi Doremi</p>
+<p>Dipilih oleh: Reifan</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/Budi-DoremiMesin-Waktu.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 2 -->
+<div class="card" data-judul="aku yang salah" data-siswa="Andi">
+<h3>Aku Yang Salah</h3>
+<p>Artis: Mahalini</p>
+<p>Dipilih oleh: Andi</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/aku-yang-salah.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 3 -->
+<div class="card" data-judul="hati hati di jalan" data-siswa="Sinta">
+<h3>Hati-Hati di Jalan</h3>
+<p>Artis: Tulus</p>
+<p>Dipilih oleh: Sinta</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/hati-hati-di-jalan.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 4 -->
+<div class="card" data-judul="rumah ke rumah" data-siswa="Reifan">
+<h3>Rumah ke Rumah</h3>
+<p>Artis: Hindia</p>
+<p>Dipilih oleh: Reifan</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/rumah-ke-rumah.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 5 -->
+<div class="card" data-judul="sewaktu waktu" data-siswa="Andi">
+<h3>Sewaktu Waktu</h3>
+<p>Artis: Fiersa Besari</p>
+<p>Dipilih oleh: Andi</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/sewaktu-waktu.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 6 -->
+<div class="card" data-judul="resah" data-siswa="Sinta">
+<h3>Resah</h3>
+<p>Artis: Payung Teduh</p>
+<p>Dipilih oleh: Sinta</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/resah.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 7 -->
+<div class="card" data-judul="pamit" data-siswa="Reifan">
+<h3>Pamit</h3>
+<p>Artis: Tulus</p>
+<p>Dipilih oleh: Reifan</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/pamit.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 8 -->
+<div class="card" data-judul="celengan rindu" data-siswa="Andi">
+<h3>Celengan Rindu</h3>
+<p>Artis: Fiersa Besari</p>
+<p>Dipilih oleh: Andi</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/celengan-rindu.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 9 -->
+<div class="card" data-judul="evaluasi" data-siswa="Sinta">
+<h3>Evaluasi</h3>
+<p>Artis: Hindia</p>
+<p>Dipilih oleh: Sinta</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/evaluasi.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 10 -->
+<div class="card" data-judul="monokrom" data-siswa="Reifan">
+<h3>Monokrom</h3>
+<p>Artis: Tulus</p>
+<p>Dipilih oleh: Reifan</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/monokrom.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 11–30 (ringkas, tetap konsisten) -->
+<!-- Kamu tinggal pastikan file mp3-nya ada -->
+
+<!-- 11 -->
+<div class="card" data-judul="janji setia" data-siswa="Andi">
+<h3>Janji Setia</h3>
+<p>Artis: Tiara Andini</p>
+<p>Dipilih oleh: Andi</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/janji-setia.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 12 -->
+<div class="card" data-judul="kenangan manis" data-siswa="Sinta">
+<h3>Kenangan Manis</h3>
+<p>Artis: Pamungkas</p>
+<p>Dipilih oleh: Sinta</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/kenangan-manis.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 13 -->
+<div class="card" data-judul="to the bone" data-siswa="Reifan">
+<h3>To The Bone</h3>
+<p>Artis: Pamungkas</p>
+<p>Dipilih oleh: Reifan</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/to-the-bone.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 14 -->
+<div class="card" data-judul="lebih dari egoku" data-siswa="Andi">
+<h3>Lebih Dari Egoku</h3>
+<p>Artis: Mawar de Jongh</p>
+<p>Dipilih oleh: Andi</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/lebih-dari-egoku.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 15 -->
+<div class="card" data-judul="bertaut" data-siswa="Sinta">
+<h3>Bertaut</h3>
+<p>Artis: Nadin Amizah</p>
+<p>Dipilih oleh: Sinta</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/bertaut.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 16 -->
+<div class="card" data-judul="runtuh" data-siswa="Reifan">
+<h3>Runtuh</h3>
+<p>Artis: Feby Putri</p>
+<p>Dipilih oleh: Reifan</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/runtuh.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 17 -->
+<div class="card" data-judul="usai" data-siswa="Andi">
+<h3>Usai</h3>
+<p>Artis: Tiara Andini</p>
+<p>Dipilih oleh: Andi</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/usai.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 18 -->
+<div class="card" data-judul="tak ingin usai" data-siswa="Sinta">
+<h3>Tak Ingin Usai</h3>
+<p>Artis: Keisya Levronka</p>
+<p>Dipilih oleh: Sinta</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/tak-ingin-usai.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 19 -->
+<div class="card" data-judul="sial" data-siswa="Reifan">
+<h3>Sial</h3>
+<p>Artis: Mahalini</p>
+<p>Dipilih oleh: Reifan</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/sial.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 20 -->
+<div class="card" data-judul="blue" data-siswa="Andi">
+<h3>Blue</h3>
+<p>Artis: YOASOBI</p>
+<p>Dipilih oleh: Andi</p>
+<p class="small">Diputar: <span class="count">0</span>x</p>
+<p class="small status"></p>
+<audio controls preload="metadata">
+<source src="lagu/blue.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 21–30 bisa kamu lanjutkan dengan pola yang sama -->
+
+
+</div>
+
+<p id="notFound" style="text-align:center;display:none;">
+❌ Maaf, lagu tidak ditemukan
+</p>
+
+</section>
+
+<footer>
+© 2025 Kelas 12 TKJ G
+</footer>
+
+<script>
+const cards=document.querySelectorAll(".card");
+const audios=document.querySelectorAll("audio");
+const search=document.getElementById("search");
+const filterSiswa=document.getElementById("filterSiswa");
+const playAll=document.getElementById("playAll");
+const notFound=document.getElementById("notFound");
+
+/* SEARCH + FILTER */
+function filter(){
+    let key=search.value.toLowerCase();
+    let siswa=filterSiswa.value;
+    let found=false;
+
+    cards.forEach(c=>{
+        let okJudul=c.dataset.judul.includes(key);
+        let okSiswa=!siswa||c.dataset.siswa===siswa;
+        c.style.display=(okJudul&&okSiswa)?"block":"none";
+        if(okJudul&&okSiswa) found=true;
+    });
+    notFound.style.display=found?"none":"block";
+}
+search.addEventListener("input",filter);
+filterSiswa.addEventListener("change",filter);
+
+/* AUTO STOP + NEXT + COUNT */
+audios.forEach((audio,i)=>{
+    const card=audio.closest(".card");
+    const status=card.querySelector(".status");
+    const countEl=card.querySelector(".count");
+    const key="play_"+i;
+
+    countEl.textContent=localStorage.getItem(key)||0;
+
+    audio.addEventListener("play",()=>{
+        audios.forEach(a=>{
+            if(a!==audio){
+                a.pause();
+                a.currentTime=0;
+            }
+        });
+        cards.forEach(c=>c.classList.remove("playing"));
+        card.classList.add("playing");
+        status.textContent="▶ Sedang diputar";
+
+        let c=parseInt(localStorage.getItem(key)||0)+1;
+        localStorage.setItem(key,c);
+        countEl.textContent=c;
+    });
+
+    audio.addEventListener("pause",()=>{
+        status.textContent="";
+        card.classList.remove("playing");
+    });
+
+    audio.addEventListener("ended",()=>{
+        if(audios[i+1]) audios[i+1].play();
+    });
+});
+
+/* PUTAR SEMUA (AMAN) */
+playAll.onclick=()=>{
+    for(let a of audios){
+        if(a.readyState>=2){
+            a.play();
+            break;
+        }
+    }
+};
+</script>
+
+</body>
+</html>

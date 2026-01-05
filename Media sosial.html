@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Media Sosial & Kontak - Kelas 12 TKJ G</title>
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#0b132b;
+    color:white;
+}
+header{
+    background:#1c2541;
+    padding:30px;
+    text-align:center;
+    position:relative;
+}
+header img.logo{
+            position:fixed;
+            top:15px;
+            left:15px;
+            width:55px;          /* ukuran sedang */
+            height:auto;
+            border-radius:8px;
+            background:white;
+            padding:4px;
+            z-index:1100;
+}
+section{
+    padding:40px;
+    max-width:800px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+.contact-card{
+    background:#1c2541;
+    padding:20px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    transition:0.3s;
+}
+.contact-card:hover{
+    background:#3a86ff33;
+}
+.contact-card img{
+    width:50px;
+    height:50px;
+    object-fit:cover;
+}
+/* TOMBOL KEMBALI */
+.back-home{
+    text-align:center;
+    margin:30px 0;
+}
+.back-home a{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 22px;
+    background:#1c2541;
+    color:#3a86ff;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:25px;
+    transition:0.3s;
+}
+.back-home a:hover{
+    background:#3a86ff;
+    color:white;
+}
+.back-home a span{
+    transition:0.3s;
+}
+.back-home a:hover span{
+    transform:translateX(-4px);
+}
+.contact-card a{
+    color:#3a86ff;
+    text-decoration:none;
+    font-weight:bold;
+}
+.contact-card a:hover{
+    text-decoration:underline;
+}
+footer{
+    background:#1c2541;
+    text-align:center;
+    padding:15px;
+    margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+   <img src="https://i.ibb.co.com/27qhfM3c/1000344585-removebg-preview.png"
+     alt="Logo Sekolah" 
+     class="logo">
+    <h1>Media Sosial & Kontak Kelas 12 TKJ G</h1>
+</header>
+
+<section>
+    <!-- Instagram Kelas -->
+    <div class="contact-card">
+        <img src="https://i.ibb.co.com/hRKC7rcd/1000344606-removebg-preview.png" alt="1000344606 removebg preview" border="0"></a>
+        <div>
+            <h3>Instagram Kelas</h3>
+            <a href="https://instagram.com/kelas12tkjg" target="_blank">@kelas12tkjg</a>
+        </div>
+    </div>
+
+    <!-- WhatsApp Kelas -->
+    <div class="contact-card">
+      <img src="https://i.ibb.co.com/1GnW3fsF/1000344605-removebg-preview.png" alt="1000344605 removebg preview" border="0"></a>
+        <div>
+            <h3>WhatsApp Kelas</h3>
+            <a href="https://wa.me/6288296298667" target="_blank">Chat Grup Kelas</a>
+        </div>
+    </div>
+
+    <!-- Alamat Sekolah -->
+    <div class="contact-card">
+         <img src="https://i.ibb.co.com/27qhfM3c/1000344585-removebg-preview.png"
+     alt="Logo Sekolah" 
+     class="logo">
+        <div>
+            <h3>Alamat Sekolah</h3>
+            <p>JL. AL MUNAWAROH RT. 02/01 NO. 33, BELENDUNG, Kec. Benda, Kota Tangerang, Banten.</p>
+        </div>
+    </div>
+</section>
+
+
+<div class="back-home">
+<a href="index.html"><span>←</span> Kembali ke Beranda</a>
+</div>
+
+<footer>
+    © 2025 Kelas 12 TKJ G
+</footer>
+
+</body>
+</html>

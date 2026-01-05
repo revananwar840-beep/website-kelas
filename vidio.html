@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Video Kegiatan</title>
+</head>
+<body style="background:#0b132b;color:white;font-family:Arial">
+<style>
+header img.logo{
+            position:fixed;
+            top:15px;
+            left:15px;
+            width:55px;          /* ukuran sedang */
+            height:auto;
+            border-radius:8px;
+            background:white;
+            padding:4px;
+            z-index:1100;
+}
+/* TOMBOL KEMBALI */
+.back-home{
+    text-align:center;
+    margin:30px 0;
+}
+.back-home a{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 22px;
+    background:#1c2541;
+    color:#3a86ff;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:25px;
+    transition:0.3s;
+}
+.back-home a:hover{
+    background:#3a86ff;
+    color:white;
+}
+.back-home a span{
+    transition:0.3s;
+}
+.back-home a:hover span{
+    transform:translateX(-4px);
+}
+</style>
+<header style="background:#1c2541;padding:30px;text-align:center;position:relative">
+    <img src="https://i.ibb.co.com/27qhfM3c/1000344585-removebg-preview.png"
+     alt="Logo Sekolah"
+     class="logo">
+    <h1>Video Kegiatan Kelas</h1>
+</header>
+
+
+
+
+<section style="padding:40px;max-width:800px;margin:auto">
+
+<!-- Tambahkan input pencarian -->
+<input type="text" id="searchBox" placeholder="Cari video..." style="width:100%;padding:10px;margin-bottom:20px;border-radius:8px;border:none;font-size:16px">
+
+<div class="video-card">
+    <h3 class="caption">Bazar</h3>
+    <video controls width="100%">
+        <source src="video/video-bazzar.mp4" type="video/mp4">
+        Browser kamu tidak mendukung video.
+    </video>
+</div>
+
+
+  <div class="video-card">
+    <h3 class="caption">Kegiatan Kelas</h3>
+    <video controls width="100%">
+      <source src="video/video1.mp4" type="video/mp4">
+    </video>
+  </div>
+
+ <div class="video-card">
+    <h3 class="caption">Praktik Jaringan 1</h3>
+    <video controls width="100%">
+        <source src="video/video1.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="video-card">
+    <h3 class="caption">Praktik Server 2</h3>
+    <video controls width="100%">
+        <source src="video/video2.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="video-card">
+    <h3 class="caption">Class Meeting</h3>
+    <video controls width="100%">
+        <source src="video/video3.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="video-card">
+    <h3 class="caption">Bazaar Sekolah</h3>
+    <video controls width="100%">
+        <source src="video/video4.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="video-card">
+    <h3 class="caption">Workshop CSS</h3>
+    <video controls width="100%">
+        <source src="video/video5.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="video-card">
+    <h3 class="caption">Praktik HTML & CSS</h3>
+    <video controls width="100%">
+        <source src="video/video6.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="video-card">
+    <h3 class="caption">Presentasi Project</h3>
+    <video controls width="100%">
+        <source src="video/video7.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="video-card">
+    <h3 class="caption">Praktik Firewall</h3>
+    <video controls width="100%">
+        <source src="video/video8.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="video-card">
+    <h3 class="caption">Praktik LAN</h3>
+    <video controls width="100%">
+        <source src="video/video9.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="video-card">
+    <h3 class="caption">Praktik Mikrotik</h3>
+    <video controls width="100%">
+        <source src="video/video10.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="back-home">
+<a href="index.html"><span>←</span> Kembali ke Beranda</a>
+</div>
+
+</section>
+
+<footer style="background:#1c2541;text-align:center;padding:15px">
+© 2025 Kelas 12 TKJ G
+</footer>
+
+<script>
+// Script pencarian video
+const searchBox = document.getElementById('searchBox');
+searchBox.addEventListener('input', function(){
+    const filter = searchBox.value.toLowerCase();
+    const videos = document.querySelectorAll('.video-card');
+    videos.forEach(video=>{
+        const caption = video.querySelector('.caption').textContent.toLowerCase();
+        if(caption.includes(filter)){
+            video.style.display = '';
+        } else {
+            video.style.display = 'none';
+        }
+    });
+});
+</script>
+
+</body>
+</html>

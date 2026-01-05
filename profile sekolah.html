@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Profil Sekolah Premium</title>
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0b132b;
+    color:white;
+    scroll-behavior:smooth;
+}
+header{
+    background:#1c2541;
+    padding:30px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+header img{
+    width:120px;
+    height:120px;
+    border-radius:15px;
+    margin-bottom:10px;
+    transition: transform 0.5s;
+}
+/* Logo tambahan di pojok atas */
+.logo{
+    position:fixed;
+    top:15px;
+    left:15px;
+    width:55px;
+    height:auto;
+    border-radius:8px;
+    background:white;
+    padding:4px;
+    z-index:2000;
+}
+
+header img:hover{
+    transform: scale(1.1);
+}
+.slider{
+    position:relative;
+    max-width:800px;
+    margin:20px auto;
+    border-radius:12px;
+    overflow:hidden;
+}
+.slide{
+    display:none;
+    width:100%;
+    border-radius:12px;
+}
+.active{
+    display:block;
+    animation:fade 1s;
+}
+@keyframes fade{
+    from{opacity:0.4;}
+    to{opacity:1;}
+}
+section{
+    padding:40px;
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+}
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+p{
+    margin-bottom:15px;
+}
+.social{
+    text-align:center;
+    margin-top:20px;
+}
+.social a{
+    display:inline-block;
+    margin:0 10px;
+    color:#3a86ff;
+    font-size:20px;
+    text-decoration:none;
+    transition:0.3s;
+}
+.back-home a{
+    padding:12px 22px;
+    background:#1c2541;
+    color:#3a86ff;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+}
+.back-home a:hover{
+    background:#3a86ff;
+    color:white;
+}
+footer{
+    background:#1c2541;
+    text-align:center;
+    padding:15px;
+    margin-top:40px;
+}
+.social a:hover{
+    transform:scale(1.2);
+}
+a{
+    display:block;
+    margin-top:20px;
+    color:#3a86ff;
+    text-decoration:none;
+    font-weight:bold;
+    text-align:center;
+}
+a:hover{
+    text-decoration:underline;
+}
+footer{
+    background:#1c2541;
+    text-align:center;
+    padding:15px;
+    margin-top:40px;
+}
+</style>
+</head>
+<body>
+
+<header>
+ <img src="https://i.ibb.co.com/27qhfM3c/1000344585-removebg-preview.png"
+     alt="Logo Sekolah" 
+     class="logo">
+
+<h1>SMK EXCELLENT 1 TANGERANG</h1>
+<p>Teknik Komputer dan Jaringan</p>
+</header>
+
+
+
+<section>
+<h2>Profil Sekolah</h2>
+<p><b>Sejarah:</b> SMK EXCELLENT 1 merupakan salah satu sekolah jenjang SMK berstatus Swasta yang berada di wilayah Kec. Benda, Kota Tangerang, Banten. SMK EXCELLENT 1 didirikan pada tanggal 1 Januari 1970 dengan Nomor SK Pendirian 23532-58 yang berada dalam naungan Kementerian Pendidikan dan Kebudayaan. Dalam kegiatan pembelajaran, sekolah yang memiliki 773 siswa ini dibimbing oleh 34 guru yang profesional di bidangnya. Kepala Sekolah SMK EXCELLENT 1 saat ini adalah Rohmah. Operator yang bertanggung jawab adalah Ade Juni Setiawan.
+
+Dengan adanya keberadaan SMK EXCELLENT 1, diharapkan dapat memberikan kontribusi dalam mencerdaskan anak bangsa di wilayah Kec. Benda, Kota Tangerang.</p>
+
+<p><b>Visi:</b> Menjadi sekolah terkemuka di bidang Teknologi dan Komputer yang berakhlak mulia dan siap menghadapi dunia industri.</p>
+
+<p><b>Misi:</b> 
+<ul>
+<li>Menyelenggarakan pendidikan berkualitas di bidang TKJ.</li>
+<li>Mendorong siswa berprestasi di lomba akademik dan non-akademik.</li>
+<li>Membentuk karakter disiplin, kreatif, dan bertanggung jawab.</li>
+</ul>
+</p>
+
+<p><b>Alamat:</b>JL. AL MUNAWAROH RT. 02/01 NO. 33, BELENDUNG, Kec. Benda, Kota Tangerang, Banten.</p>
+<p><b>Kontak:</b> (021)55761006 | Email: smk_excellent1@yahoo.com</p>
+
+<div class="social">
+<a href="https://www.tiktok.com/@smkexcellent" target="_blank">
+    @smkexcellent
+</a>
+
+<a href="https://www.instagram.com/smkexcellent1_official" target="_blank">
+    @smkexcellent1_official
+</a>
+
+</div>
+
+<div class="back-home">
+<a href="index.html">← Kembali ke Beranda</a>
+</div>
+</section>
+
+<footer>© 2025 SMK EXCELLENT 1 TANGERANG</footer>
+
+<script>
+// Slider Otomatis
+let slideIndex = 0;
+let slides = document.getElementsByClassName("slide");
+
+function showSlides(){
+    for(let i=0;i<slides.length;i++){
+        slides[i].classList.remove("active");
+    }
+    slideIndex++;
+    if(slideIndex>slides.length){slideIndex=1;}
+    slides[slideIndex-1].classList.add("active");
+    setTimeout(showSlides,4000); // ganti tiap 4 detik
+}
+showSlides();
+</script>
+
+</body>
+</html>

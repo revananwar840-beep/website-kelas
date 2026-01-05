@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Jadwal Kelas - 12 TKJ G</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0b132b;
+    color:white;
+}
+
+/* Header */
+header{
+    background:linear-gradient(135deg,#1c2541,#3a86ff);
+    padding:40px;
+    text-align:center;
+}
+header img.logo{
+    position:fixed;
+    top:15px;
+    left:15px;
+    width:55px;
+    border-radius:8px;
+    background:white;
+    padding:4px;
+    z-index:1000;
+}
+
+/* Navbar */
+nav{
+    background:#1c2541;
+    padding:12px;
+    text-align:center;
+    position:sticky;
+    top:0;
+}
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+}
+nav a.active{
+    color:#3a86ff;
+}
+
+/* Section */
+section{
+    padding:40px;
+}
+
+/* Card */
+.card{
+    background:#1c2541;
+    padding:20px;
+    border-radius:12px;
+    max-width:900px;
+    margin:20px auto;
+    text-align:center;
+}
+
+/* Jadwal Image */
+.jadwal-box{
+    position:relative;
+    display:inline-block;
+}
+.jadwal-img{
+    width:100%;
+    max-width:850px;
+    border-radius:10px;
+    margin-top:15px;
+    cursor:zoom-in;
+}
+
+/* Watermark */
+.watermark{
+    position:absolute;
+    bottom:10px;
+    right:15px;
+    font-size:12px;
+    opacity:0.6;
+    background:rgba(0,0,0,0.4);
+    padding:4px 8px;
+    border-radius:6px;
+}
+
+/* Zoom Overlay */
+.overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.9);
+    z-index:3000;
+    justify-content:center;
+    align-items:center;
+}
+.overlay img{
+    max-width:95%;
+    max-height:95%;
+    border-radius:10px;
+    cursor:zoom-out;
+}
+
+/* Info Text */
+.info{
+    font-size:14px;
+    opacity:0.8;
+    margin-top:10px;
+}
+
+/* Mobile */
+@media(max-width:600px){
+    section{
+        padding:20px;
+    }
+    .jadwal-img{
+        max-width:100%;
+    }
+}
+
+/* Footer */
+footer{
+    background:#1c2541;
+    text-align:center;
+    padding:15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="https://i.ibb.co/27qhfM3c/1000344585-removebg-preview.png" class="logo">
+<h1>Jadwal Pelajaran</h1>
+<p>Kelas 12 TKJ G</p>
+</header>
+
+<nav>
+<a href="index.html">Beranda</a>
+<a href="playlist.html">Playlist Lagu</a>
+<a href="jadwal.html" class="active">Jadwal Kelas</a>
+</nav>
+
+<section>
+
+<div class="card">
+<h3>📅 Jadwal Pelajaran</h3>
+
+<div class="jadwal-box">
+    <!-- GANTI GAMBAR JADWAL DI SINI -->
+    <img src="jadwal-TKJ-G.jpg"
+         alt="Jadwal Pelajaran 12 TKJ G"
+         class="jadwal-img"
+         onclick="openZoom()">
+
+    <div class="watermark">12 TKJ G</div>
+</div>
+
+<p class="info">Klik gambar untuk memperbesar</p>
+<p class="info">Update terakhir: 5 Januari 2026</p>
+<p class="info">Jika jadwal berubah, akan di-update di halaman ini</p>
+
+</div>
+
+</section>
+
+<footer>
+© 2025 Kelas 12 TKJ G
+</footer>
+
+<!-- Zoom -->
+<div class="overlay" id="zoomBox" onclick="closeZoom()">
+<img src="jadwal-TKJ-G.jpg">
+</div>
+
+<script>
+function openZoom(){
+    document.getElementById("zoomBox").style.display="flex";
+}
+function closeZoom(){
+    document.getElementById("zoomBox").style.display="none";
+}
+</script>
+
+</body>
+</html>

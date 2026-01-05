@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Data Siswa 12 TKJ G</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0b132b;
+    color:white;
+}
+header{
+    background:#1c2541;
+    padding:30px;
+    text-align:center;
+}
+header img.logo{
+    position:fixed;
+    top:15px;
+    left:15px;
+    width:55px;
+    border-radius:8px;
+    background:white;
+    padding:4px;
+    z-index:1100;
+}
+section{
+    padding:40px;
+    max-width:1000px;
+    margin:auto;
+}
+input{
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:none;
+    margin-bottom:10px;
+    font-size:16px;
+}
+#notFoundText{
+    display:none;
+    text-align:center;
+    color:#ff6b6b;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+.table-wrapper{
+    background:#1c2541;
+    border-radius:12px;
+    overflow:auto;
+    max-height:70vh;
+}
+/* TOMBOL KEMBALI */
+.back-home{
+    text-align:center;
+    margin:30px 0;
+}
+.back-home a{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 22px;
+    background:#1c2541;
+    color:#3a86ff;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:25px;
+    transition:0.3s;
+}
+.back-home a:hover{
+    background:#3a86ff;
+    color:white;
+}
+.back-home a span{
+    transition:0.3s;
+}
+.back-home a:hover span{
+    transform:translateX(-4px);
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:700px;
+}
+th,td{
+    padding:12px;
+    border-bottom:1px solid #3a86ff;
+}
+th{
+    background:#3a86ff;
+    position:sticky;
+    top:0;
+}
+tr:hover{
+    background:#3a86ff33;
+}
+.detail-siswa{
+    display:none;
+    background:#1c2541;
+    padding:20px;
+    border-radius:12px;
+    margin-top:20px;
+}
+.detail-siswa img{
+    width:120px;
+    height:160px;
+    object-fit:cover;
+    border-radius:10px;
+    border:3px solid #3a86ff;
+}
+button{
+    padding:10px 20px;
+    background:#3a86ff;
+    border:none;
+    border-radius:8px;
+    color:white;
+    cursor:pointer;
+}
+footer{
+    background:#1c2541;
+    text-align:center;
+    padding:15px;
+    margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="https://i.ibb.co.com/27qhfM3c/1000344585-removebg-preview.png" class="logo">
+<h1>Data Siswa Kelas 12 TKJ G</h1>
+</header>
+
+<section>
+
+<input type="text" id="searchInput" placeholder="Cari nama siswa...">
+<p id="notFoundText">Maaf, nama siswa tidak terdaftar</p>
+
+<div id="listSiswa">
+<div class="table-wrapper">
+<table id="siswaTable">
+<thead>
+<tr>
+<th>No</th>
+<th>Nama</th>
+<th>Alamat</th>
+<th>Jabatan</th>
+</tr>
+</thead>
+<tbody id="tableBody"></tbody>
+</table>
+</div>
+</div>
+
+</section>
+<div class="back-home">
+    <a href="index.html">← Kembali ke Beranda</a>
+</div>
+
+<footer>© 2025 Kelas 12 TKJ G</footer>
+
+<script>
+const siswaList = [
+{no:1,nama:"ACHMAD AMINULLAH",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:2,nama:"ADELIA ROSYIFA",alamat:"Kota Tangerang",jabatan:"Wakil Bendahara",foto:"",ket:"Isi sendiri"},
+{no:3,nama:"AHMAD JAUHARY",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:4,nama:"ALFAN FAUZI",alamat:"Kota Tangerang",jabatan:"Wakil ketua kelas",foto:"",ket:"Isi sendiri"},
+{no:5,nama:"ANDRYAN RAMDHANI",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:6,nama:"DAMIAN AL NASTA",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:7,nama:"FAAIQ ALFA WAHYUDIN",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:8,nama:"FAHRI ALFAIRUZ",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:9,nama:"FAIZAH NAILAH",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:10,nama:"FEBRIYANA MAULANA",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:11,nama:"IZA NURUL AZMI",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:12,nama:"MUHAMMAD AL FAIZ FATURAHMAN",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:13,nama:"MUHAMMAD ARDIANSYAH",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:14,nama:"MUHAMMAD DWI FAUZAN",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:15,nama:"NADA CINTIYA DEWI",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:16,nama:"NADIAH",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:17,nama:"NAUFAL AFKAR IDLAN",alamat:"Kota Tangerang",jabatan:"Ketua Kelas",foto:"",ket:"Isi sendiri"},
+{no:18,nama:"NICCOLAS WILLSON",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:19,nama:"NUR ALDIANSYAH",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:20,nama:"PARISKI SAPUTRA",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:21,nama:"REIFAN ANWAR AL-KALIFI",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"foto/reifan.jpg",ket:"Isi sendiri"},
+{no:22,nama:"RICHO INOVA WIHARTA",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:23,nama:"RIZKI NOVAL",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:24,nama:"ROSIDI",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:25,nama:"SAFINATUN NAJAH",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:26,nama:"SALWA LABIBAH",alamat:"Kota Tangerang",jabatan:"Wakil Sekretaris",foto:"",ket:"Isi sendiri"},
+{no:27,nama:"SITI LATIFAH OKTAVIANA",alamat:"Kota Tangerang",jabatan:"Bendahara",foto:"",ket:"Isi sendiri"},
+{no:28,nama:"SOFYAN HARIS",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:29,nama:"SYAHRUL ALFI HAMBALI",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:30,nama:"VIKA FAUZIA",alamat:"Kota Tangerang",jabatan:"Sekretaris",foto:"",ket:"halo nama saya vika fauzia saya sekolah di smk excellent 1 tangerang"},
+{no:31,nama:"YUNIAR PRATIWI",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:32,nama:"YUSUF SURYA NUGRAHA",alamat:"Kota Tangerang",jabatan:"Siswa",foto:"",ket:"Isi sendiri"},
+{no:33,nama:"Siswa 33",alamat:"Kp. rawa bokor",jabatan:"Anggota",foto:"",ket:"Isi sendiri"},
+{no:34,nama:"Siswa 34",alamat:"Jurumudi baru",jabatan:"Anggota",foto:"",ket:"Isi sendiri"},
+{no:35,nama:"Siswa 35",alamat:"kampung baru",jabatan:"Anggota",foto:"",ket:"Isi sendiri"}
+];
+
+let tbody="", detail="";
+siswaList.forEach(s=>{
+  let id=s.nama.replace(/\s+/g,"");
+  tbody+=`
+  <tr>
+    <td>${s.no}</td>
+    <td style="color:#3a86ff;cursor:pointer" onclick="showDetail('${id}')">${s.nama}</td>
+    <td>${s.alamat}</td>
+    <td>${s.jabatan}</td>
+  </tr>`;
+  detail+=`
+  <div id="${id}" class="detail-siswa">
+    <h2>${s.nama}</h2>
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <img src="${s.foto||'default.jpg'}" onerror="this.src='default.jpg'">
+      <p>${s.ket}</p>
+    </div>
+    <p><b>Alamat:</b> ${s.alamat}</p>
+    <p><b>Jabatan:</b> ${s.jabatan}</p>
+    <button onclick="backToList()">← Kembali ke Tabel</button>
+  </div>`;
+});
+
+tableBody.innerHTML=tbody;
+document.querySelector("section").insertAdjacentHTML("beforeend",detail);
+
+searchInput.addEventListener("keyup",()=>{
+  let v=searchInput.value.toUpperCase().trim();
+  let rows=document.querySelectorAll("#siswaTable tbody tr");
+  let found=false;
+  if(v===""){
+    rows.forEach(r=>r.style.display="");
+    notFoundText.style.display="none";
+    return;
+  }
+  rows.forEach(r=>{
+    let n=r.cells[1].innerText.toUpperCase();
+    if(n.includes(v)){r.style.display="";found=true;}
+    else r.style.display="none";
+  });
+  notFoundText.style.display=found?"none":"block";
+});
+
+function showDetail(id){
+  listSiswa.style.display="none";
+  document.getElementById(id).style.display="block";
+}
+function backToList(){
+  listSiswa.style.display="block";
+  document.querySelectorAll(".detail-siswa").forEach(d=>d.style.display="none");
+}
+</script>
+
+</body>
+</html>

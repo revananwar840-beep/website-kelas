@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Struktur Kelas 12 TKJ G - Premium</title>
+<style>
+/* ===== BODY ===== */
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#0b132b;
+    color:white;
+    scroll-behavior:smooth;
+}
+
+/* ===== HEADER ===== */
+header{
+    background:#1c2541;
+    padding:30px;
+    text-align:center;
+    position:relative;
+}
+header img.logo{
+    position:fixed;
+    top:15px;
+    left:15px;
+    width:55px;
+    height:auto;
+    border-radius:8px;
+    background:white;
+    padding:4px;
+    z-index:1100;
+}
+
+/* ===== TOMBOL KEMBALI ===== */
+.back-home{
+    text-align:center;
+    margin:30px 0;
+}
+.back-home a{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 22px;
+    background:#1c2541;
+    color:#3a86ff;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:25px;
+    transition:0.3s;
+}
+.back-home a:hover{
+    background:#3a86ff;
+    color:white;
+}
+.back-home a span{
+    transition:0.3s;
+}
+.back-home a:hover span{
+    transform:translateX(-4px);
+}
+
+/* ===== SECTION & HIERARCHY ===== */
+section{
+    padding:40px;
+    max-width:1000px;
+    margin:auto;
+}
+.hierarchy{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    position:relative;
+}
+.row{
+    display:flex;
+    justify-content:center;
+    margin:20px 0;
+    flex-wrap:wrap;
+    position:relative;
+}
+
+/* ===== CARD ===== */
+.card{
+    background:#1c2541;
+    padding:15px;
+    border-radius:12px;
+    margin:10px;
+    text-align:center;
+    width:150px;
+    position:relative;
+    cursor:pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover{
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(0,0,0,.4);
+}
+.card img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:10px;
+}
+.card .name{
+    font-weight:bold;
+}
+.card .position{
+    color:#3aeeff;
+    font-weight:bold;
+    font-size:14px;
+    margin-top:4px;
+}
+
+/* ===== TOOLTIP ===== */
+.card .tooltip{
+    visibility:hidden;
+    width:200px;
+    background:#3a86ff;
+    color:#0b132b;
+    text-align:center;
+    border-radius:6px;
+    padding:5px;
+    position:absolute;
+    top:-50px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:12px;
+    z-index:10;
+    opacity:0;
+    transition: opacity 0.3s;
+}
+.card:hover .tooltip{
+    visibility:visible;
+    opacity:1;
+}
+
+/* ===== MODAL ===== */
+.modal{
+    display:none;
+    position:fixed;
+    z-index:50;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+}
+.modal-content{
+    background:#1c2541;
+    padding:30px;
+    border-radius:12px;
+    max-width:500px;
+    text-align:center;
+    position:relative;
+    z-index:20;
+}
+.modal-content img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:10px;
+}
+.close{
+    position:absolute;
+    top:10px;
+    right:15px;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ===== GARIS VERTICAL & HORIZONTAL ===== */
+.row {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.row::before {
+    content:"";
+    position:absolute;
+    top:-20px;
+    left:50%;
+    width:2px;
+    height:20px;
+    background:#3aeeff;
+    transform:translateX(-50%);
+    opacity:0;
+    animation: fadeIn 0.8s forwards;
+}
+
+/* Horizontal lines antar card */
+.row > .card:not(:last-child)::after {
+    content:"";
+    position:absolute;
+    top:50%;
+    left:100%;
+    width:50%;
+    height:2px;
+    background:#3aeeff;
+    z-index:-1;
+    opacity:0;
+    animation: fadeIn 0.8s forwards;
+}
+
+/* Hilangkan garis vertikal & horizontal jika row hanya 1 card */
+.row:only-child::before,
+.row:only-child > .card::after {
+    display:none;
+}
+
+.row:only-child::before,
+.row:only-child > .card::after {
+    display:none;
+}
+@keyframes fadeIn{
+    to{opacity:1;}
+}
+
+/* ===== ANIMASI CARD MASUK ===== */
+.card{
+    opacity:0;
+    animation: fadeUp 0.6s ease forwards;
+}
+.card:nth-child(1){animation-delay:0.1s;}
+.card:nth-child(2){animation-delay:0.2s;}
+.card:nth-child(3){animation-delay:0.3s;}
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#1c2541;
+    text-align:center;
+    padding:15px;
+    margin-top:40px;
+    font-size:14px;
+    opacity:0.9;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+    .row{
+        flex-direction:column;
+        align-items:center;
+    }
+    .row::before, .row > .card:not(:last-child)::after{
+        display:none;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <img src="https://i.ibb.co/27qhfM3c/1000344585-removebg-preview.png" alt="Logo Sekolah" class="logo">
+    <h1>Struktur Kelas 12 TKJ G 🚀</h1>
+    <p>Kelas TKJ G – Solid & Kompak</p>
+</header>
+
+<section>
+<div class="hierarchy">
+    <!-- Wali Kelas -->
+    <div class="row">
+        <div class="card" onclick="openModal('walikelas')">
+            <img src="foto/1L.jpg" alt="Wali Kelas">
+            <div class="name">Ada Juni Setiawan, S.Pd</div>
+            <div class="position">Wali Kelas</div>
+            <div class="tooltip">Guru Pembimbing Kelas 12 TKJ G, sabar & ramah 😄</div>
+        </div>
+    </div>
+
+    <!-- Ketua Kelas -->
+    <div class="row">
+        <div class="card" onclick="openModal('ketua')">
+            <img src="assets/ketua.jpg" alt="Ketua Kelas">
+            <div class="name">Naufal Afkar Idlan</div>
+            <div class="position">Ketua Kelas</div>
+            <div class="tooltip">Pemimpin kelas, paling sering disuruh maju 😎</div>
+        </div>
+    </div>
+
+    <!-- Wakil Ketua -->
+    <div class="row">
+        <div class="card" onclick="openModal('wakil')">
+            <img src="assets/wakil.jpg" alt="Wakil Ketua">
+            <div class="name">Alfan Fauzi</div>
+            <div class="position">Wakil Ketua</div>
+            <div class="tooltip">Membantu Ketua dalam koordinasi & kegiatan kelas</div>
+        </div>
+    </div>
+
+    <!-- Bendahara -->
+    <div class="row">
+        <div class="card" onclick="openModal('bendahara1')">
+            <img src="assets/bendahara1.jpg" alt="Bendahara 1">
+            <div class="name">Siti Latifah Oktaviana</div>
+            <div class="position">Bendahara 1</div>
+            <div class="tooltip">Urusan kas & laporan keuangan kelas 💸</div>
+        </div>
+        <div class="card" onclick="openModal('bendahara2')">
+            <img src="assets/bendahara2.jpg" alt="Bendahara 2">
+            <div class="name">Adelia Rosyifa</div>
+            <div class="position">Bendahara 2</div>
+            <div class="tooltip">Membantu Bendahara 1 dalam administrasi keuangan</div>
+        </div>
+    </div>
+
+    <!-- Sekretaris -->
+    <div class="row">
+        <div class="card" onclick="openModal('sekretaris1')">
+            <img src="assets/sekretaris1.jpg" alt="Sekretaris 1">
+            <div class="name">Vika Fauziaa</div>
+            <div class="position">Sekretaris 1</div>
+            <div class="tooltip">Mencatat semua kegiatan & administrasi kelas</div>
+        </div>
+        <div class="card" onclick="openModal('sekretaris2')">
+            <img src="assets/sekretaris2.jpg" alt="Sekretaris 2">
+            <div class="name">Salwa Labibah</div>
+            <div class="position">Sekretaris 2</div>
+            <div class="tooltip">Membantu Sekretaris 1 dalam dokumentasi & administrasi</div>
+        </div>
+    </div>
+</div>
+
+<div class="back-home">
+<a href="index.html"><span>←</span> Kembali ke Beranda</a>
+</div>
+
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="closeModal()">
+    <div class="modal-content" id="modalContent" onclick="event.stopPropagation()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img src="" alt="Foto Siswa" id="modalImg">
+        <h3 id="modalName"></h3>
+        <p id="modalPosition"></p>
+        <p id="modalBio"></p>
+    </div>
+</div>
+
+<footer>
+    Dibuat oleh Kelas 12 TKJ G
+</footer>
+
+<script>
+// Data siswa untuk modal
+const siswaData = {
+    walikelas:{name:"Ada Juni Setiawan, S.Pd", position:"Wali Kelas", bio:"Guru Pembimbing Kelas 12 TKJ G, sabar & ramah 😄", img:"assets/walikelas.jpg"},
+    ketua:{name:"Naufal Afkar Idlan", position:"Ketua Kelas", bio:"Pemimpin kelas, paling sering disuruh maju 😎", img:"assets/ketua.jpg"},
+    wakil:{name:"Alfan Fauzi", position:"Wakil Ketua", bio:"Membantu Ketua dalam koordinasi & kegiatan kelas", img:"assets/wakil.jpg"},
+    bendahara1:{name:"Siti Latifah Oktaviana", position:"Bendahara 1", bio:"Urusan kas & laporan keuangan kelas 💸", img:"assets/bendahara1.jpg"},
+    bendahara2:{name:"Adelia Rosyifa", position:"Bendahara 2", bio:"Membantu Bendahara 1 dalam administrasi keuangan", img:"assets/bendahara2.jpg"},
+    sekretaris1:{name:"Vika Fauziaa", position:"Sekretaris 1", bio:"Mencatat semua kegiatan & administrasi kelas", img:"assets/sekretaris1.jpg"},
+    sekretaris2:{name:"Salwa Labibah", position:"Sekretaris 2", bio:"Membantu Sekretaris 1 dalam dokumentasi & administrasi", img:"assets/sekretaris2.jpg"}
+};
+
+function openModal(key){
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+    const modalName = document.getElementById("modalName");
+    const modalPosition = document.getElementById("modalPosition");
+    const modalBio = document.getElementById("modalBio");
+
+    modal.style.display = "flex";
+    modalImg.src = siswaData[key].img;
+    modalName.innerText = siswaData[key].name;
+    modalPosition.innerText = siswaData[key].position;
+    modalBio.innerText = siswaData[key].bio;
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
