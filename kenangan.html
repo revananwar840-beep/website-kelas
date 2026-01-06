@@ -5,12 +5,18 @@
 <title>Kenangan - Kelas 12 TKJ G</title>
 
 <style>
+/* ===== BODY ===== */
 body{
     margin:0;
     font-family: Arial, sans-serif;
     background:#0b132b;
     color:white;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
 }
+
+/* ===== HEADER ===== */
 header{
     background:#1c2541;
     padding:30px;
@@ -27,6 +33,14 @@ header img.logo{
     padding:4px;
     z-index:1100;
 }
+header h1{
+    margin-top:0;
+}
+header p{
+    opacity:0.85;
+}
+
+/* ===== SECTION ===== */
 section{
     padding:40px;
     max-width:800px;
@@ -34,7 +48,10 @@ section{
     display:flex;
     flex-direction:column;
     gap:25px;
+    flex:1; /* Ambil ruang tersisa */
 }
+
+/* ===== KENANGAN CARD ===== */
 .kenangan-card{
     background:#1c2541;
     padding:25px;
@@ -67,7 +84,6 @@ section{
     justify-content:center;
     gap:25px;
 }
-
 .photo-card{
     width:220px;
     cursor:pointer;
@@ -90,7 +106,6 @@ section{
 .photo-card:hover{
     transform:rotate(0deg) scale(1.05);
 }
-
 .caption{
     margin-top:8px;
     font-size:13px;
@@ -113,9 +128,11 @@ section{
     max-width:95%;
     max-height:80vh;
     border-radius:10px;
+    transition: transform 0.3s ease;
 }
 .modal p{
     margin-top:12px;
+    color:white;
 }
 .modal span{
     position:absolute;
@@ -123,6 +140,7 @@ section{
     right:25px;
     font-size:30px;
     cursor:pointer;
+    color:white;
 }
 
 /* ===== TOMBOL MUSIK ===== */
@@ -164,11 +182,26 @@ section{
     color:white;
 }
 
+/* ===== FOOTER ===== */
+footer{
+    text-align:center;
+    padding:20px 10px;
+    background:#1c2541;
+    color:#3a86ff;
+    font-weight:bold;
+    border-radius:12px 12px 0 0;
+    margin-top:auto; /* menempel ke bawah */
+}
+
 /* ===== RESPONSIVE HP ===== */
 @media(max-width:600px){
     section{padding:25px;}
     .photo-card{width:90%;}
     .photo-card img{height:180px;}
+    footer{
+        font-size:14px;
+        padding:15px 10px;
+    }
 }
 </style>
 </head>
@@ -176,7 +209,7 @@ section{
 <body>
 
 <header>
-<img src="https://i.ibb.co.com/27qhfM3c/1000344585-removebg-preview.png" class="logo">
+<img src="https://i.ibb.co/27qhfM3c/1000344585-removebg-preview.png" class="logo" alt="Logo">
 <h1>Kenangan Kelas 12 TKJ G</h1>
 <p>Catatan kecil dari proses belajar dan kebersamaan</p>
 </header>
@@ -203,28 +236,28 @@ section{
 
 <div class="kenangan-grid">
 <div class="photo-card" onclick="openModal(this)">
-<img src="foto/1L.jpg">
-<div class="caption">Wisuda Kelas 12 TKJ G · 2025</div>
+<img src="foto/1L.jpg" alt="Wisuda">
+<div class="caption">Wisuda Kelas 12 TKJ G  2025</div>
 </div>
 
 <div class="photo-card" onclick="openModal(this)">
-<img src="jogja-1.jpg">
-<div class="caption">Jogja · Malioboro · 2024</div>
+<img src="foto/1L.jpg" alt="Malioboro">
+<div class="caption">Jogja  Malioboro  2024</div>
 </div>
 
 <div class="photo-card" onclick="openModal(this)">
-<img src="jogja-2.jpg">
-<div class="caption">Parangtritis · 2024</div>
+<img src="jogja-2.jpg" alt="Parangtritis">
+<div class="caption">Parangtritis  2024</div>
 </div>
 
 <div class="photo-card" onclick="openModal(this)">
-<img src="jogja-3.jpg">
-<div class="caption">Prambanan · 2024</div>
+<img src="jogja-3.jpg" alt="Prambanan">
+<div class="caption">Prambanan 2024</div>
 </div>
 
 <div class="photo-card" onclick="openModal(this)">
-<img src="jogja-4.jpg">
-<div class="caption">Momen Bareng · 2024</div>
+<img src="jogja-4.jpg" alt="Momen Bareng">
+<div class="caption">Momen Bareng 2024</div>
 </div>
 </div>
 </div>
@@ -232,11 +265,11 @@ section{
 </section>
 
 <div class="back-home">
-<a href="index.html">← Kembali ke Beranda</a>
+<a href="index.html">Kembali ke Beranda</a>
 </div>
 
 <footer>
-© 2025 Kelas 12 TKJ G · Kenangan tidak akan hilang
+  @2025 Kelas 12 TKJ G
 </footer>
 
 <!-- MUSIK LATAR -->
@@ -245,11 +278,10 @@ section{
 </audio>
 <button id="musicBtn">🔊</button>
 
+<!-- SCRIPT -->
 <script>
 const music = document.getElementById("bgMusic");
 const btn = document.getElementById("musicBtn");
-
-// volume lembut
 music.volume = 0.3;
 
 // otomatis nyala saat halaman dibuka
@@ -274,64 +306,30 @@ window.addEventListener("beforeunload", () => {
     music.pause();
     music.currentTime = 0;
 });
-</script>
 
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <span onclick="closeModal()">×</span>
-  <img id="modalImg">
-  <p id="modalText"></p>
-</div>
-
-<script>
+// MODAL FOTO
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
 const modalText = document.getElementById("modalText");
 
 function openModal(card){
-    modal.style.display = "flex";
-    modalImg.src = card.querySelector("img").src;
-    modalText.innerText = card.querySelector(".caption").innerText;
-
-    // animasi zoom
-    modalImg.style.transform = "scale(0.5)";
-    setTimeout(() => {
-        modalImg.style.transition = "transform 0.3s ease";
-        modalImg.style.transform = "scale(1)";
-    }, 10);
-}
-
-function closeModal(){
-    modal.style.display = "none";
-}
-</script>
-
-
-<script>
-const music = document.getElementById("bgMusic");
-const btn = document.getElementById("musicBtn");
-music.volume = 0.3;
-
-btn.onclick = ()=>{
-    if(music.paused){
-        music.play();
-        btn.textContent="🔊";
-    }else{
-        music.pause();
-        btn.textContent="🔇";
-    }
-};
-
-function openModal(card){
     modal.style.display="flex";
     modalImg.src=card.querySelector("img").src;
     modalText.innerText=card.querySelector(".caption").innerText;
+    modalImg.style.transform="scale(0.5)";
+    setTimeout(()=>{ modalImg.style.transform="scale(1)"; },10);
 }
 function closeModal(){
     modal.style.display="none";
 }
 </script>
+
+<!-- MODAL HTML -->
+<div class="modal" id="modal">
+  <span onclick="closeModal()">×</span>
+  <img id="modalImg">
+  <p id="modalText"></p>
+</div>
 
 </body>
 </html>

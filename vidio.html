@@ -2,22 +2,105 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Video Kegiatan</title>
-</head>
-<body style="background:#0b132b;color:white;font-family:Arial">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Kegiatan Kelas 12 TKJ G</title>
 <style>
-header img.logo{
-            position:fixed;
-            top:15px;
-            left:15px;
-            width:55px;          /* ukuran sedang */
-            height:auto;
-            border-radius:8px;
-            background:white;
-            padding:4px;
-            z-index:1100;
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0b132b;
+    color:white;
+    scroll-behavior:smooth;
 }
-/* TOMBOL KEMBALI */
+
+/* HEADER */
+header{
+    background:#1c2541;
+    padding:20px 20px 60px;
+    text-align:center;
+    position:relative;
+}
+header img.logo{
+    position:fixed;
+    top:15px;
+    left:15px;
+    width:55px;
+    height:auto;
+    border-radius:8px;
+    background:white;
+    padding:4px;
+    z-index:1100;
+}
+
+/* NAV HAMBURGER */
+nav{
+    position:fixed;
+    top:15px;
+    right:15px;
+    z-index:1200;
+    display:none; /* default hidden di desktop */
+}
+nav button{
+    background:#3a86ff;
+    border:none;
+    color:white;
+    font-size:24px;
+    padding:8px 12px;
+    border-radius:6px;
+    cursor:pointer;
+}
+nav ul{
+    display:none;
+    position:absolute;
+    right:0;
+    top:50px;
+    background:#1c2541;
+    list-style:none;
+    margin:0;
+    padding:10px 0;
+    border-radius:8px;
+    width:180px;
+}
+nav ul li a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:10px 20px;
+    transition:0.3s;
+}
+nav ul li a:hover{
+    background:#3a86ff;
+}
+
+/* SEARCH */
+.search-box{
+    max-width:600px;
+    margin:30px auto;
+}
+.search-box input{
+    width:100%;
+    padding:12px;
+    border-radius:8px;
+    border:none;
+    font-size:16px;
+}
+
+/* VIDEO CARDS */
+.video-card{
+    max-width:800px;
+    margin:20px auto;
+}
+.video-card h3.caption{
+    margin-bottom:10px;
+    font-size:18px;
+    color:#3aeeff;
+}
+.video-card video{
+    width:100%;
+    border-radius:12px;
+}
+
+/* BACK HOME */
 .back-home{
     text-align:center;
     margin:30px 0;
@@ -44,120 +127,105 @@ header img.logo{
 .back-home a:hover span{
     transform:translateX(-4px);
 }
+
+/* FOOTER */
+footer{
+    background:#1c2541;
+    text-align:center;
+    padding:15px;
+    position:relative;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    nav{
+        display:block; /* hamburger muncul di HP */
+    }
+}
 </style>
-<header style="background:#1c2541;padding:30px;text-align:center;position:relative">
-    <img src="https://i.ibb.co.com/27qhfM3c/1000344585-removebg-preview.png"
-     alt="Logo Sekolah"
-     class="logo">
-    <h1>Video Kegiatan Kelas</h1>
+</head>
+<body>
+
+<header>
+    <img src="https://i.ibb.co.com/27qhfM3c/1000344585-removebg-preview.png" alt="Logo Sekolah" class="logo">
+    <h1>Video Kegiatan Kelas 12 TKJ G</h1>
+
+    <!-- NAV HAMBURGER -->
+    <nav>
+        <button onclick="toggleMenu()">☰</button>
+        <ul id="menu">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="tentang.html">Tentang</a></li>
+            <li><a href="struktur.html">Struktur</a></li>
+            <li><a href="galeri.html">Galeri</a></li>
+            <li><a href="vidio.html">Video</a></li>
+            <li><a href="siswa.html">Siswa</a></li>
+            <li><a href="walikelas.html">Wali Kelas</a></li>
+            <li><a href="profile sekolah.html">Profil Sekolah</a></li>
+            <li><a href="Media sosial.html">Media Sosial</a></li>
+            <li><a href="playlist-spotify.html">Playlist</a></li>
+            <li><a href="jadwal.html">Jadwal Pelajaran</a></li>
+            <li><a href="kenangan.html">Kenangan</a></li>
+        </ul>
+    </nav>
 </header>
 
+<!-- SEARCH -->
+<div class="search-box">
+<input type="text" id="searchBox" placeholder="Cari video...">
+</div>
 
-
-
-<section style="padding:40px;max-width:800px;margin:auto">
-
-<!-- Tambahkan input pencarian -->
-<input type="text" id="searchBox" placeholder="Cari video..." style="width:100%;padding:10px;margin-bottom:20px;border-radius:8px;border:none;font-size:16px">
-
+<section>
 <div class="video-card">
     <h3 class="caption">Bazar</h3>
-    <video controls width="100%">
+    <video controls>
         <source src="video/video-bazzar.mp4" type="video/mp4">
-        Browser kamu tidak mendukung video.
     </video>
 </div>
 
-
-  <div class="video-card">
+<div class="video-card">
     <h3 class="caption">Kegiatan Kelas</h3>
-    <video controls width="100%">
+    <video controls>
       <source src="video/video1.mp4" type="video/mp4">
     </video>
-  </div>
+</div>
 
- <div class="video-card">
+<div class="video-card">
     <h3 class="caption">Praktik Jaringan 1</h3>
-    <video controls width="100%">
+    <video controls>
         <source src="video/video1.mp4" type="video/mp4">
     </video>
 </div>
 
 <div class="video-card">
     <h3 class="caption">Praktik Server 2</h3>
-    <video controls width="100%">
+    <video controls>
         <source src="video/video2.mp4" type="video/mp4">
     </video>
 </div>
 
 <div class="video-card">
     <h3 class="caption">Class Meeting</h3>
-    <video controls width="100%">
+    <video controls>
         <source src="video/video3.mp4" type="video/mp4">
-    </video>
-</div>
-
-<div class="video-card">
-    <h3 class="caption">Bazaar Sekolah</h3>
-    <video controls width="100%">
-        <source src="video/video4.mp4" type="video/mp4">
-    </video>
-</div>
-
-<div class="video-card">
-    <h3 class="caption">Workshop CSS</h3>
-    <video controls width="100%">
-        <source src="video/video5.mp4" type="video/mp4">
-    </video>
-</div>
-
-<div class="video-card">
-    <h3 class="caption">Praktik HTML & CSS</h3>
-    <video controls width="100%">
-        <source src="video/video6.mp4" type="video/mp4">
-    </video>
-</div>
-
-<div class="video-card">
-    <h3 class="caption">Presentasi Project</h3>
-    <video controls width="100%">
-        <source src="video/video7.mp4" type="video/mp4">
-    </video>
-</div>
-
-<div class="video-card">
-    <h3 class="caption">Praktik Firewall</h3>
-    <video controls width="100%">
-        <source src="video/video8.mp4" type="video/mp4">
-    </video>
-</div>
-
-<div class="video-card">
-    <h3 class="caption">Praktik LAN</h3>
-    <video controls width="100%">
-        <source src="video/video9.mp4" type="video/mp4">
-    </video>
-</div>
-
-<div class="video-card">
-    <h3 class="caption">Praktik Mikrotik</h3>
-    <video controls width="100%">
-        <source src="video/video10.mp4" type="video/mp4">
     </video>
 </div>
 
 <div class="back-home">
 <a href="index.html"><span>←</span> Kembali ke Beranda</a>
 </div>
-
 </section>
 
-<footer style="background:#1c2541;text-align:center;padding:15px">
-© 2025 Kelas 12 TKJ G
-</footer>
+<footer>© 2025 Kelas 12 TKJ G</footer>
 
 <script>
-// Script pencarian video
+// Toggle hamburger menu
+function toggleMenu(){
+    const menu = document.getElementById('menu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}
+
+// Search video
 const searchBox = document.getElementById('searchBox');
 searchBox.addEventListener('input', function(){
     const filter = searchBox.value.toLowerCase();

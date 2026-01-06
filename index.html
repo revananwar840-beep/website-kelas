@@ -18,7 +18,7 @@ body{
 header{
     background:linear-gradient(135deg,#1c2541,#3a86ff);
     text-align:center;
-    overflow:hidden;
+    position:relative;
 }
 
 header img.header-img{
@@ -42,6 +42,28 @@ header img.logo{
     z-index:1100;
 }
 
+/* Hamburger Button */
+.hamburger{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    position:fixed;
+    top:20px;
+    right:20px;
+    width:40px;
+    height:30px;
+    cursor:pointer;
+    z-index:1200;
+}
+.hamburger div{
+    width:30px;
+    height:3px;
+    background:white;
+    margin:4px 0;
+    transition:0.3s;
+}
+
 /* Navbar */
 nav{
     background:#1c2541;
@@ -53,10 +75,19 @@ nav{
     box-shadow:0 2px 8px rgba(0,0,0,0.4);
 }
 
-nav a{
+nav ul{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+
+nav ul li a{
     color:white;
     text-decoration:none;
-    margin:0 15px;
     font-weight:bold;
     padding:8px 12px;
     border-radius:6px;
@@ -64,8 +95,8 @@ nav a{
     display:inline-flex;
 }
 
-nav a:hover,
-nav a.active{
+nav ul li a:hover,
+nav ul li a.active{
     background:#3a86ff;
 }
 
@@ -88,7 +119,7 @@ section{
     padding:25px;
     border-radius:12px;
     max-width:600px;
-    margin:0 auto;
+    margin:20px auto;
     opacity:0;
     transform:translateY(25px);
     animation:fadeInUp 1s forwards;
@@ -160,6 +191,7 @@ footer{
     cursor:pointer;
 }
 
+/* Light mode */
 .lightMode{
     background:white;
     color:#0b132b;
@@ -168,8 +200,35 @@ footer{
 .lightMode footer{background:#3a86ff;}
 .lightMode .card{background:#3a86ff33;}
 
+/* RESPONSIVE */
+@media(max-width:1024px){
+    .hamburger{
+        display:flex;
+    }
+    nav{
+        position:fixed;
+        top:0;
+        right:0;
+        height:100%;
+        width:220px;
+        background:#1c2541;
+        transform:translateX(100%);
+        transition:transform 0.3s ease;
+        flex-direction:column;
+        padding-top:80px;
+        box-shadow:-2px 0 8px rgba(0,0,0,0.4);
+    }
+    nav.show{
+        transform:translateX(0);
+    }
+    nav ul{
+        flex-direction:column;
+        gap:15px;
+    }
+}
+
 @media(max-width:768px){
-    nav a{display:block;margin:8px 0;}
+    nav ul li a{display:block; margin:8px 0;}
     header img.header-img{height:200px;}
 }
 </style>
@@ -184,21 +243,30 @@ footer{
         <h1>Website Kelas 12 TKJ G</h1>
         <p>Catatan digital, informasi, dan cerita kelas 12 TKJ G</p>
     </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </header>
 
-<nav>
-<a href="index.html" class="active">Beranda</a>
-<a href="tentang.html">Tentang</a>
-<a href="struktur.html">Struktur</a>
-<a href="galeri.html">Galeri</a>
-<a href="vidio.html">Video</a>
-<a href="siswa.html">Siswa</a>
-<a href="walikelas.html">Wali Kelas</a>
-<a href="profile sekolah.html">Profil Sekolah</a>
-<a href="Media sosial.html">Media Sosial</a>
-<a href="playlist-spotify.html">Playlist</a>
-<a href="jadwal.html">Jadwal Pelajaran</a>
-<a href="kenangan.html">Kenangan</a>
+<nav id="nav-menu">
+    <ul>
+        <li><a href="index.html" class="active">Beranda</a></li>
+        <li><a href="tentang.html">Tentang</a></li>
+        <li><a href="struktur.html">Struktur</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="vidio.html">Video</a></li>
+        <li><a href="siswa.html">Siswa</a></li>
+        <li><a href="walikelas.html">Wali Kelas</a></li>
+        <li><a href="profile sekolah.html">Profil Sekolah</a></li>
+        <li><a href="Media sosial.html">Media Sosial</a></li>
+        <li><a href="playlist-spotify.html">Playlist</a></li>
+        <li><a href="jadwal.html">Jadwal Pelajaran</a></li>
+        <li><a href="kenangan.html">Kenangan</a></li>
+    </ul>
 </nav>
 
 <button id="darkToggle">🌙</button>
@@ -238,6 +306,13 @@ dari pembelajaran dan pengalaman siswa TKJ.
 <button onclick="topFunction()" id="topBtn">↑</button>
 
 <script>
+// Hamburger toggle
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("nav-menu");
+hamburger.addEventListener("click", ()=>{
+    navMenu.classList.toggle("show");
+});
+
 // Active menu
 document.querySelectorAll("nav a").forEach(a=>{
     if(a.href===location.href) a.classList.add("active");

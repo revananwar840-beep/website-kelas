@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galeri Kelas 12 TKJ G</title>
 <style>
 body{
@@ -9,22 +10,75 @@ body{
     font-family:Arial, sans-serif;
     background:#0b132b;
     color:white;
+    scroll-behavior:smooth;
 }
+
+/* HEADER */
 header{
     background:#1c2541;
-    padding:30px;
+    padding:20px 20px 50px;
     text-align:center;
+    position:relative;
 }
 header img.logo{
     position:fixed;
     top:15px;
     left:15px;
     width:55px;
-    height:auto;
     border-radius:8px;
     background:white;
     padding:4px;
     z-index:1100;
+}
+
+/* NAVBAR HAMBURGER */
+nav{
+    position:fixed;
+    top:15px;
+    right:15px;
+    z-index:1200;
+}
+
+/* Default: sembunyikan hamburger di layar besar */
+nav button,
+nav ul{
+    display:none;
+}
+
+/* Hanya tampilkan hamburger di layar kecil */
+@media(max-width:768px){
+    nav button{
+        display:block;
+        background:#3a86ff;
+        border:none;
+        color:white;
+        font-size:24px;
+        padding:8px 12px;
+        border-radius:6px;
+        cursor:pointer;
+    }
+    nav ul{
+        display:none;
+        position:absolute;
+        right:0;
+        top:50px;
+        background:#1c2541;
+        list-style:none;
+        margin:0;
+        padding:10px 0;
+        border-radius:8px;
+        width:180px;
+    }
+    nav ul li a{
+        display:block;
+        color:white;
+        text-decoration:none;
+        padding:10px 20px;
+        transition:0.3s;
+    }
+    nav ul li a:hover{
+        background:#3a86ff;
+    }
 }
 
 /* SEARCH */
@@ -42,10 +96,10 @@ header img.logo{
 
 /* GALERI */
 section{
-    padding:40px;
+    padding:20px;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
 }
 .card{
     background:#1c2541;
@@ -53,6 +107,7 @@ section{
     overflow:hidden;
     text-align:center;
     cursor:pointer;
+    transition:0.3s;
 }
 .card img{
     width:100%;
@@ -104,7 +159,7 @@ section{
     color:white;
 }
 
-/* TOMBOL KEMBALI */
+/* BACK HOME */
 .back-home{
     text-align:center;
     margin:30px 0;
@@ -136,15 +191,42 @@ footer{
     background:#1c2541;
     text-align:center;
     padding:15px;
+    margin-top:30px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    section{
+        grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+        gap:12px;
+    }
 }
 </style>
 </head>
-
 <body>
 
 <header>
 <img src="https://i.ibb.co.com/27qhfM3c/1000344585-removebg-preview.png" class="logo">
 <h1>Galeri Kegiatan Kelas 12 TKJ G</h1>
+
+<!-- NAV HAMBURGER -->
+<nav>
+<button onclick="toggleMenu()">☰</button>
+<ul id="menu">
+<li><a href="index.html">Beranda</a></li>
+<li><a href="tentang.html">Tentang</a></li>
+<li><a href="struktur.html">Struktur</a></li>
+<li><a href="galeri.html">Galeri</a></li>
+<li><a href="vidio.html">Video</a></li>
+<li><a href="siswa.html">Siswa</a></li>
+<li><a href="walikelas.html">Wali Kelas</a></li>
+<li><a href="profile sekolah.html">Profil Sekolah</a></li>
+<li><a href="Media sosial.html">Media Sosial</a></li>
+<li><a href="playlist-spotify.html">Playlist</a></li>
+<li><a href="jadwal.html">Jadwal Pelajaran</a></li>
+<li><a href="kenangan.html">Kenangan</a></li>
+</ul>
+</nav>
 </header>
 
 <!-- SEARCH -->
@@ -155,13 +237,12 @@ footer{
 <p id="notFound">Maaf, gambar tidak ditemukan 😢</p>
 
 <section id="gallery">
-<div class="card"><img src="https://i.ibb.co.com/YBtbpkg9/IMG-20251224-WA0084.jpg"><div class="caption">Coffee Shop</div></div>
-<div class="card"><img src="https://i.ibb.co.com/wFhmYW0w/IMG-20251211-WA0046.jpg"><div class="caption">Class Meeting Badminton</div></div>
-<div class="card"><img src="https://i.ibb.co.com/JYv9Gk6/IMG-20251221-WA0058.jpg"><div class="caption">Bazaar Sekolah</div></div>
-<div class="card"><img src="https://i.ibb.co.com/C5ZYh1jc/IMG-20251221-WA0019.jpg"><div class="caption">Bazaar Sekolah 2</div></div>
-<div class="card"><img src="https://i.ibb.co.com/bRqtr98m/IMG-20251221-WA0017.jpg"><div class="caption">Bazaar Sekolah 3</div></div>
-<div class="card"><img src="https://i.ibb.co.com/nNCv32gD/IMG-20251223-WA0072.jpg"><div class="caption">Bakar-bakar Tahun Baru</div></div>
-
+<div class="card"><img src="https://i.ibb.co/YBtbpkg9/IMG-20251224-WA0084.jpg"><div class="caption">Coffee Shop</div></div>
+<div class="card"><img src="https://i.ibb.co/wFhmYW0w/IMG-20251211-WA0046.jpg"><div class="caption">Class Meeting Badminton</div></div>
+<div class="card"><img src="https://i.ibb.co/JYv9Gk6/IMG-20251221-WA0058.jpg"><div class="caption">Bazaar Sekolah</div></div>
+<div class="card"><img src="https://i.ibb.co/C5ZYh1jc/IMG-20251221-WA0019.jpg"><div class="caption">Bazaar Sekolah 2</div></div>
+<div class="card"><img src="https://i.ibb.co/bRqtr98m/IMG-20251221-WA0017.jpg"><div class="caption">Bazaar Sekolah 3</div></div>
+<div class="card"><img src="https://i.ibb.co/nNCv32gD/IMG-20251223-WA0072.jpg"><div class="caption">Bakar-bakar Tahun Baru</div></div>
 </section>
 
 <!-- LIGHTBOX -->
@@ -177,6 +258,12 @@ footer{
 <footer>© 2025 Kelas 12 TKJ G</footer>
 
 <script>
+// NAV HAMBURGER
+function toggleMenu(){
+    const menu = document.getElementById("menu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
 // SEARCH
 const searchInput=document.getElementById("searchInput");
 const cards=document.querySelectorAll(".card");

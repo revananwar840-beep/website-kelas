@@ -1,172 +1,273 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Tentang Kelas 12 TKJ G</title>
-    <style>
-        body{
-            margin:0;
-            font-family: Arial, sans-serif;
-            background:#0b132b;
-            color:white;
-            scroll-behavior:smooth;
-        }
-        header{
-            background:#1c2541;
-            padding:30px;
-            text-align:center;
-            position:relative;
-        }
-        header img.logo{
-            position:fixed;
-            top:15px;
-            left:15px;
-            width:55px;
-            height:auto;
-            border-radius:8px;
-            background:white;
-            padding:4px;
-            z-index:1100;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tentang Kelas 12 TKJ G</title>
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#0b132b;
+    color:white;
+    scroll-behavior:smooth;
+}
 
-        section{
-            padding:40px;
-            max-width:800px;
-            margin:auto;
-            line-height:1.8;
-            text-align:justify;
-        }
+/* Header */
+header{
+    background:#1c2541;
+    padding:25px 20px 40px;
+    text-align:center;
+    position:relative;
+}
+header img.logo{
+    position:fixed;
+    top:10px;
+    left:10px;
+    width:50px;
+    border-radius:8px;
+    background:white;
+    padding:4px;
+    z-index:1100;
+}
+header h1{
+    margin-top:0;
+    font-size:22px;
+}
+header p{
+    opacity:0.85;
+    margin-top:6px;
+    font-size:14px;
+}
 
-        footer{
-            background:#1c2541;
-            text-align:center;
-            padding:15px;
-            margin-top:40px;
-            font-size:14px;
-            opacity:0.9;
-        }
+/* Navbar */
+nav{
+    background:#1c2541;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 8px rgba(0,0,0,0.4);
+}
+nav ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    transition:all 0.3s ease;
+}
+nav ul li{
+    margin:0 10px;
+}
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    padding:8px 12px;
+    border-radius:6px;
+    transition:0.3s;
+    display:block;
+}
+nav ul li a:hover,
+nav ul li a.active{
+    background:#3a86ff;
+}
 
-        .highlight{
-            color:#3a86ff;
-            font-weight:bold;
-        }
+/* Hamburger */
+.hamburger{
+    display:none;
+    position:absolute;
+    top:15px;
+    right:15px;
+    flex-direction:column;
+    cursor:pointer;
+    z-index:1200;
+}
+.hamburger span{
+    height:3px;
+    width:25px;
+    background:white;
+    margin:4px 0;
+    border-radius:3px;
+    transition:0.3s;
+}
 
-        /* Divider cerita */
-        .divider{
-            width:60px;
-            height:3px;
-            background:#3a86ff;
-            margin:35px auto;
-            border-radius:5px;
-            opacity:0.8;
-        }
+/* Section */
+section{
+    padding:30px 15px;
+    max-width:800px;
+    margin:auto;
+    line-height:1.7;
+    text-align:justify;
+}
 
-        /* Quote kenangan */
-        .quote{
-            text-align:center;
-            font-style:italic;
-            opacity:0.9;
-            margin:40px 0;
-        }
+/* Divider cerita */
+.divider{
+    width:60px;
+    height:3px;
+    background:#3a86ff;
+    margin:35px auto;
+    border-radius:5px;
+    opacity:0.8;
+}
 
-        /* Fakta kelas */
-        .facts{
-            background:#1c2541;
-            padding:25px;
-            border-radius:12px;
-            margin:40px 0;
-        }
-        .facts p{
-            margin:10px 0;
-        }
+/* Quote kenangan */
+.quote{
+    text-align:center;
+    font-style:italic;
+    opacity:0.9;
+    margin:30px 0;
+}
 
-        /* Timeline mini */
-        .timeline{
-            margin:40px 0;
-        }
-        .timeline li{
-            margin:12px 0;
-        }
+/* Fakta kelas */
+.facts{
+    background:#1c2541;
+    padding:20px;
+    border-radius:12px;
+    margin:30px 0;
+}
+.facts p{
+    margin:8px 0;
+    font-size:14px;
+}
 
-        /* Tombol kembali */
-        .back-home{
-            text-align:center;
-            margin:40px 0;
-        }
-        .back-home a{
-            display:inline-flex;
-            align-items:center;
-            gap:8px;
-            padding:12px 22px;
-            background:#1c2541;
-            color:#3a86ff;
-            text-decoration:none;
-            font-weight:bold;
-            border-radius:25px;
-            transition:0.3s;
-        }
-        .back-home a:hover{
-            background:#3a86ff;
-            color:white;
-        }
-        .back-home a span{
-            transition:0.3s;
-        }
-        .back-home a:hover span{
-            transform:translateX(-4px);
-        }
-    </style>
+/* Timeline mini */
+.timeline{
+    margin:30px 0;
+    padding-left:20px;
+}
+.timeline li{
+    margin:10px 0;
+    font-size:14px;
+}
+
+/* Tombol kembali */
+.back-home{
+    text-align:center;
+    margin:30px 0;
+}
+.back-home a{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 18px;
+    background:#1c2541;
+    color:#3a86ff;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:25px;
+    transition:0.3s;
+    font-size:14px;
+}
+.back-home a:hover{
+    background:#3a86ff;
+    color:white;
+}
+.back-home a span{
+    transition:0.3s;
+}
+.back-home a:hover span{
+    transform:translateX(-4px);
+}
+
+/* Footer */
+footer{
+    background:#1c2541;
+    text-align:center;
+    padding:15px;
+    margin-top:40px;
+    font-size:14px;
+    opacity:0.9;
+}
+
+/* RESPONSIVE HP */
+@media(max-width:768px){
+    .hamburger{
+        display:flex;
+    }
+    nav ul{
+        flex-direction:column;
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        padding-top:60px;
+        max-height:0;
+        overflow:hidden;
+        opacity:0;
+        visibility:hidden;
+        transition:all 0.4s ease;
+    }
+    nav ul.show{
+        max-height:500px;
+        opacity:1;
+        visibility:visible;
+    }
+    nav ul li{
+        margin:10px 0;
+        text-align:center;
+    }
+}
+</style>
 </head>
-
 <body>
 
 <header>
-<img src="https://i.ibb.co.com/27qhfM3c/1000344585-removebg-preview.png"
-     alt="Logo Sekolah" 
-     class="logo">
-    <h1>Tentang Kelas 12 TKJ G</h1>
-    <p>Teknik Komputer dan Jaringan</p>
+<img src="https://i.ibb.co.com/27qhfM3c/1000344585-removebg-preview.png" alt="Logo Sekolah" class="logo">
+<h1>Tentang Kelas 12 TKJ G</h1>
+<p>Teknik Komputer dan Jaringan</p>
 </header>
+
+<nav>
+<div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<ul id="menu">
+    <li><a href="index.html" class="active">Beranda</a></li>
+    <li><a href="tentang.html">Tentang</a></li>
+    <li><a href="struktur.html">Struktur</a></li>
+    <li><a href="galeri.html">Galeri</a></li>
+    <li><a href="vidio.html">Video</a></li>
+    <li><a href="siswa.html">Siswa</a></li>
+    <li><a href="walikelas.html">Wali Kelas</a></li>
+    <li><a href="profile sekolah.html">Profil Sekolah</a></li>
+    <li><a href="Media sosial.html">Media Sosial</a></li>
+    <li><a href="playlist-spotify.html">Playlist</a></li>
+    <li><a href="jadwal.html">Jadwal Pelajaran</a></li>
+    <li><a href="kenangan.html">Kenangan</a></li>
+</ul>
+</nav>
 
 <section>
     <p>
         Kelas <span class="highlight">12 TKJ G</span> adalah rumah bagi para siswa yang penuh semangat, kreatif, dan pantang menyerah. Di sini, kami tidak hanya mempelajari jaringan komputer, server, perangkat keras, dan pembuatan website, tetapi juga menanamkan nilai kerja sama dan ketekunan yang akan menemani kami di masa depan.
     </p>
-
     <div class="divider"></div>
-
     <p>
         Setiap hari di kelas ini dipenuhi dengan tawa, tantangan praktik, diskusi, serta momen-momen kecil yang perlahan berubah menjadi kenangan. Dari tugas yang terasa berat hingga keberhasilan menyelesaikan praktik, semuanya menjadi bagian dari perjalanan kami bersama.
     </p>
-
     <div class="quote">
         “Tiga tahun bukan waktu singkat, tapi cukup untuk menjadi sebuah cerita.”
     </div>
-
     <p>
         Tak hanya belajar, <span class="highlight">12 TKJ G</span> juga pernah menorehkan prestasi yang membanggakan. Kami berhasil meraih <b>Juara 2 Lomba Badminton Class Meeting</b> serta aktif berpartisipasi dalam <b>Bazaar Sekolah</b>, menunjukkan bahwa kebersamaan dan semangat kami tidak hanya ada di dalam kelas.
     </p>
-
     <div class="divider"></div>
-
-    <!-- Fakta Kelas -->
     <div class="facts">
         <p><b>📌 Jumlah Siswa:</b> 35 orang</p>
         <p><b>📌 Jurusan:</b> TKJ – Teknik Jaringan dan Komputer</p>
         <p><b>📌 Angkatan:</b> —</p>
     </div>
-
-    <!-- Timeline Mini -->
     <ul class="timeline">
         <li><b>Kelas 10</b> – Awal perkenalan dan adaptasi</li>
         <li><b>Kelas 11</b> – Mulai banyak praktik dan kerja kelompok</li>
         <li><b>Kelas 12</b> – Kenangan, tanggung jawab, dan persiapan masa depan</li>
     </ul>
-
     <p>
         Halaman ini kami tulis sebagai pengingat bahwa kami pernah belajar, berjuang, dan tumbuh bersama di kelas <span class="highlight">12 TKJ G</span>. Bukan sekadar kelas, tapi sebuah cerita.
     </p>
-
     <div class="back-home">
         <a href="index.html"><span>←</span> Kembali ke Beranda</a>
     </div>
@@ -175,6 +276,13 @@
 <footer>
     © 2025 Kelas 12 TKJ G
 </footer>
+
+<script>
+function toggleMenu(){
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('show');
+}
+</script>
 
 </body>
 </html>
